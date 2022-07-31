@@ -3,7 +3,7 @@ Strong aliases for [`typenum`](https://lib.rs/typenum), powered by const generic
 
 ### Motivation
 `typenum` defines [convenient type aliases](https://docs.rs/typenum/latest/typenum/consts/index.html) for frequently used numbers.
-Unfortunately, `rustc` compilation errors and `rust-analyzer` expand them into their full binary representation, e. g. [`typenum::U10`](https://docs.rs/typenum/latest/typenum/consts/type.U10.html) is expanded to this:
+Unfortunately, `rustc` & `rust-analyzer` expand them into their full binary representation, e. g. [`typenum::U10`](https://docs.rs/typenum/latest/typenum/consts/type.U10.html) is expanded to this:
 ```rust
 pub type U10 = UInt<UInt<UInt<UInt<UTerm, B1>, B0>, B1>, B0>;
 ```
