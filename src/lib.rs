@@ -21,6 +21,9 @@
 //! You can shorten it even more to `Const<10>` either by using latest nightly, which already contains the fix
 //! (<https://github.com/rust-lang/rust/pull/99393>), or by waiting for `1.64.0` stable release of Rust.
 
+#![deny(clippy::pedantic)]
+#![allow(clippy::wildcard_imports)]
+
 #[doc(no_inline)]
 pub use typenum::{consts, operator_aliases, type_operators};
 
@@ -156,6 +159,8 @@ impl_binary_ops_for_const! {
     (Gcd, Gcf),
 }
 
+// FIXME: report this false-positive to `clippy`
+#[allow(clippy::trait_duplication_in_bounds)]
 impl<const L: i32, const R: i32> Cmp<Const<R>> for Const<L>
 where
     Const<L>: ToTypenum,
