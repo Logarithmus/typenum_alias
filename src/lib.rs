@@ -166,9 +166,9 @@ where
     Const<L>: ToTypenum,
     Const<R>: ToTypenum,
     Typenum<Const<L>>: Cmp<Typenum<Const<R>>>,
-    Compare<Typenum<Const<L>>, Typenum<Const<R>>>: ToConst,
+    Compare<Typenum<Const<L>>, Typenum<Const<R>>>: Default,
 {
-    type Output = Constant<Compare<Typenum<Const<L>>, Typenum<Const<R>>>>;
+    type Output = Compare<Typenum<Const<L>>, Typenum<Const<R>>>;
 
     #[inline]
     fn compare<IM: InternalMarker>(&self, _: &Const<R>) -> Self::Output {
